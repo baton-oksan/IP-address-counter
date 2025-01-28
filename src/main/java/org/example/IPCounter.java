@@ -15,6 +15,9 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 public class IPCounter {
+    private static final long POWER_OF_THREE_OCTET = 16777216; //256*256*256
+    private static final long POWER_OF_TWO_OCTET = 65536; //256*256
+    private static final int MEMORY_PAGE_SIZE = 16384;
     private BitSet firstHalfSet = new BitSet(Integer.MAX_VALUE);
     private BitSet secondHalfSet = new BitSet(Integer.MAX_VALUE);
 
@@ -36,7 +39,7 @@ public class IPCounter {
             try (InputStream is = compressedFile.getInputStream(filesList.getFirst());
                  ReadableByteChannel fileChan = Channels.newChannel(is)) {
 
-                ByteBuffer buffer = ByteBuffer.allocate(16384);
+                ByteBuffer buffer = ByteBuffer.allocate(MEMORY_PAGE_SIZE);
                 StringBuilder ipPartBuilder = new StringBuilder();
                 int[] ipAddressArray = new int[4];
                 int ipFullnessCounter = 0;
@@ -78,13 +81,13 @@ public class IPCounter {
 
     private long getOrdinalIPNumber(int[] ipArray) {
         //тут просто считаю порядковый номер
-        long result = ((long)ipArray[0] * 256 * 256 * 256) + ((long)ipArray[1] * 256 * 256) + ((long)ipArray[2] * 256) + (long)ipArray[3];
+        long result = ((long)ipArray[0] * POWER_OF_THREE_OCTET) + ((long)ipArray[1] * POWER_OF_TWO_OCTET) + ((long)ipArray[2] * 256) + (long)ipArray[3];
         return result;
     }
 
     private void markIPinBitSet(long ordinalNumber) {
-        if (ordinalNumber > 2147483647) {
-            long ordinal = ordinalNumber - 2147483647 - 1;
+        if (ordinalNumber > Integer.MAX_VALUE) {
+            long ordinal = ordinalNumber - Integer.MAX_VALUE - 1;
             secondHalfSet.set((int)ordinal);
         } else {
             firstHalfSet.set((int)ordinalNumber);
