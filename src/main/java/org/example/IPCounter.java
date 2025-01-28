@@ -1,7 +1,6 @@
 package org.example;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -49,7 +48,7 @@ public class IPCounter {
                     while (buffer.hasRemaining()) {
                         char c = (char) buffer.get(); //читаю байт
                         if (Character.isDigit(c)) {
-                            ipPartBuilder.append(c); //если это цифра, то собираю часть айпишника
+                            ipPartBuilder.append(c); //если это цифра, то собираю часть октета
                         } else if (c == '.') {
                             ipAddressArray[ipFullnessCounter] = Integer.parseInt(ipPartBuilder.toString());
                             ipFullnessCounter++;
@@ -65,17 +64,13 @@ public class IPCounter {
                     }
                     buffer.clear();
                 }
-
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
-
-
         } catch (ZipException e) {
-            throw new RuntimeException(e);
+            System.out.println("Something went wrong" + e.getMessage());
+            e.printStackTrace();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Something went wrong" + e.getMessage());
+            e.printStackTrace();
         }
     }
 
