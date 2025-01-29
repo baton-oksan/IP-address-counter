@@ -19,20 +19,23 @@ public class IPCounter {
     private static final int MEMORY_PAGE_SIZE = 16384;
     private BitSet firstHalfSet = new BitSet(Integer.MAX_VALUE);
     private BitSet secondHalfSet = new BitSet(Integer.MAX_VALUE);
+    private File file;
 
-    public long count(String fileName) {
-        readFile(fileName);
+    public IPCounter(String fileName) {
+        file = new File(fileName);
+        if (!file.exists()) {
+            System.out.println("File " + fileName + " doesn't exist");
+            System.exit(0);
+        }
+    }
+
+    public long count() {
+        readFile();
         long result = firstHalfSet.cardinality() + secondHalfSet.cardinality();
         return result;
     }
 
-    private void readFile(String fileName) {
-        File file = new File(fileName);
-        if (!file.exists()) {
-            System.out.println("File " + fileName + " doesn't exist");
-            return;
-        }
-
+    private void readFile() {
         try (ZipFile compressedFile = new ZipFile(file)) {
             List<? extends ZipEntry> filesList = compressedFile.stream().toList();
             try (InputStream is = compressedFile.getInputStream(filesList.getFirst());
