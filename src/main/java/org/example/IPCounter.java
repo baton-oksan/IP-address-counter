@@ -77,13 +77,13 @@ public class IPCounter {
         }
     }
 
-    private long getOrdinalIPNumber(int[] ipArray) {
+    long getOrdinalIPNumber(int[] ipArray) {
         //тут просто считаю порядковый номер
-        long result = ((long)ipArray[0] * POWER_OF_THREE_OCTET) + ((long)ipArray[1] * POWER_OF_TWO_OCTET) + ((long)ipArray[2] * 256) + (long)ipArray[3];
+        long result = ((long)ipArray[0] * POWER_OF_THREE_OCTET) + ((long)ipArray[1] * POWER_OF_TWO_OCTET) + ((long)ipArray[2] * 256L) + (long)ipArray[3];
         return result;
     }
 
-    private void markIPinBitSet(long ordinalNumber) {
+    void markIPinBitSet(long ordinalNumber) {
         if (ordinalNumber > Integer.MAX_VALUE) {
             long ordinal = ordinalNumber - Integer.MAX_VALUE - 1;
             secondHalfSet.set((int)ordinal);
