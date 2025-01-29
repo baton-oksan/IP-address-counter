@@ -49,19 +49,19 @@ public class IPCounter {
                 while (fileChan.read(buffer) != -1) {
                     buffer.flip();
                     while (buffer.hasRemaining()) {
-                        char c = (char) buffer.get(); //читаю байт
+                        char c = (char) buffer.get();
                         if (Character.isDigit(c)) {
-                            ipPartBuilder.append(c); //если это цифра, то собираю часть октета
+                            ipPartBuilder.append(c);
                         } else if (c == '.') {
                             ipAddressArray[ipFullnessCounter] = Integer.parseInt(ipPartBuilder.toString());
+
                             ipFullnessCounter++;
-                            //если наш байт – это точка, то кладем получившийся октет в массив
-                            ipPartBuilder.delete(0, ipPartBuilder.length()); //очищаю билдер октета
+                            ipPartBuilder.delete(0, ipPartBuilder.length());
                         } else if (c == '\n') {
                             ipAddressArray[ipFullnessCounter] = Integer.parseInt(ipPartBuilder.toString());
                             markIPinBitSet(getOrdinalIPNumber(Arrays.copyOf(ipAddressArray, ipAddressArray.length)));
 
-                            ipPartBuilder.delete(0, ipPartBuilder.length()); //очищаю билдер октета
+                            ipPartBuilder.delete(0, ipPartBuilder.length());
                             ipFullnessCounter = 0;
                         }
                     }
@@ -78,7 +78,6 @@ public class IPCounter {
     }
 
     long getOrdinalIPNumber(int[] ipArray) {
-        //тут просто считаю порядковый номер
         long result = ((long)ipArray[0] * POWER_OF_THREE_OCTET) + ((long)ipArray[1] * POWER_OF_TWO_OCTET) + ((long)ipArray[2] * 256L) + (long)ipArray[3];
         return result;
     }

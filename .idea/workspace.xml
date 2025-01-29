@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f72d01e5-37a2-462f-87d3-95ad1b6a754d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/IPCounterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/IPCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/IPCounter.java" afterDir="false" />
-    </list>
+    <list default="true" id="f72d01e5-37a2-462f-87d3-95ad1b6a754d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,6 +73,9 @@
     "Gradle.IPCounter [:org.example.Main.main()].executor": "Run",
     "Gradle.IPCounterTest.calculateIPPosition.executor": "Run",
     "JUnit.IPCounterTest.calculateIPPosition.executor": "Run",
+    "JUnit.IPCounterTest.calculateIPPositionIfAllZeroes.executor": "Run",
+    "JUnit.IPCounterTest.checkIPMarkInBitSet.executor": "Run",
+    "JUnit.IPCounterTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
@@ -98,20 +95,7 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.IPCounterTest.calculateIPPosition">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
-      <module name="IPCounter.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.IPCounterTest.checkIPMarkInBitSet">
     <configuration name="IPCounterTest.calculateIPPosition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -136,6 +120,21 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="IPCounterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IPCounter.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.IPCounterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="IPCounterTest.calculateIPPosition" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="IPCounter.test" />
       <extension name="coverage">
@@ -152,11 +151,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="IPCounterTest.calculateIPPositionIfAllZeroes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IPCounter.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.IPCounterTest" />
+      <option name="METHOD_NAME" value="calculateIPPositionIfAllZeroes" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IPCounterTest.checkIPMarkInBitSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="IPCounter.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example" />
+      <option name="MAIN_CLASS_NAME" value="org.example.IPCounterTest" />
+      <option name="METHOD_NAME" value="checkIPMarkInBitSet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.IPCounterTest.checkIPMarkInBitSet" />
+        <item itemvalue="JUnit.IPCounterTest" />
+        <item itemvalue="JUnit.IPCounterTest.calculateIPPositionIfAllZeroes" />
         <item itemvalue="JUnit.IPCounterTest.calculateIPPosition" />
         <item itemvalue="Gradle.IPCounterTest.calculateIPPosition" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
